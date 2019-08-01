@@ -1,12 +1,12 @@
 import React from 'react';
 
 // create a component (ES6)
-const person = () => {
+const person = (props) => {
     return (
         <div>
-            <h1>do whatever we want lmao</h1>
-            <p>I'm a person bruh</p>
-            <small>I am {Math.floor(Math.random() * 30)} years old</small>
+            <p>my name is: {props.name}</p>
+            <small>I am {props.age} years old</small>
+            <small>{props.children}</small>
         </div>
     )
 };
