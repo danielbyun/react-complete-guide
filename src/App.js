@@ -21,7 +21,8 @@ class App extends Component {
                 {name: "Dan", age: 26},
                 {name: "Matt", age: 27}
             ],
-            otherState: 'some other state'
+            otherState: 'some other state',
+            showPersons: false
         })
     };
 
@@ -33,6 +34,11 @@ class App extends Component {
                 {name: "Robin", age: 43}
             ]
         })
+    };
+
+    togglePersonsHandler = () => {
+        const doesShow = this.state.showPersons;
+        this.setState({showPersons: !doesShow})
     };
 
     render() {
@@ -47,20 +53,24 @@ class App extends Component {
         return (
             <div className="App">
                 <h1>i'm learning react</h1>
-                <button style={style} onClick={this.switchNameHandler.bind(this, 'New Name')}>Switch name</button>
-                <button onClick={() => this.switchNameHandler("NEW NAME")}>Switch Name (not recommended)</button>
-                <Person
-                    name={this.state.persons[0].name}
-                    age={this.state.persons[0].age}/>
-                <Person
-                    name={this.state.persons[1].name}
-                    age={this.state.persons[1].age}
-                    click={this.switchNameHandler.bind(this, "New Shit!")}
-                    changed={this.nameChangedHandler}
-                />
-                <Person
-                    name={this.state.persons[2].name}
-                    age={this.state.persons[2].age}/>
+                <button style={style} onClick={this.togglePersonsHandler}>Toggle Button</button>
+                {this.state.showPersons ?
+                    <div>
+                        <Person
+                            name={this.state.persons[0].name}
+                            age={this.state.persons[0].age}/>
+                        <Person
+                            name={this.state.persons[1].name}
+                            age={this.state.persons[1].age}
+                            click={this.switchNameHandler.bind(this, "New Shit!")}
+                            changed={this.nameChangedHandler}
+                        />
+                        <Person
+                            name={this.state.persons[2].name}
+                            age={this.state.persons[2].age}/>
+                    </div>
+                    : null
+                }
             </div>
         )
     }
