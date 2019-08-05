@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
+
 import classes from './App.css';
-import Person from './Person/Person';
-import ErrorBoundary from './ErrorBoundary/ErrorBoundary';
+import Persons from '../Components/Persons/Persons';
+import Cockpit from '../Components/Cockpit/Cockpit'
 
 class App extends Component {
     state = {
@@ -10,12 +11,13 @@ class App extends Component {
             {id: "sdfg", name: "Dan", age: 26},
             {id: "dfgh", name: "Matt", age: 13}
         ],
-        otherState: 'some other value'
+        otherState: 'some other value',
+        showPersons: false
     };
 
     nameChangedHandler = (event, id) => {
         const personIndex = this.state.persons.findIndex(p => {
-            return p.userId === id;
+            return p.id === id;
         });
 
         // creating a new Object to not mutate the original array
@@ -44,32 +46,23 @@ class App extends Component {
 
     render() {
         let persons = null;
-        let btnClass = "";
-
         // click={() => this.deletePersonHandler(index)}
         if (this.state.showPersons) {
             persons = (
-                <div>
-                    {this.state.persons.map((person, index) => {
-                        return <ErrorBoundary key={person.id}>
-                            <Person
-                                name={person.name}
-                                age={person.age}
-                                changed={(event) => this.nameChangedHandler(event, person.id)}/>
-                        </ErrorBoundary>
-                    })}
-                </div>
+                <Persons
+                    persons={this.state.persons}
+                    clicked={this.deletePersonHandler}
+                    changed={this.nameChangedHandler}
+                />
             );
-
-            btnClass = classes.Red;
         }
 
         return (
-            <div className="App">
-                <h1>learning react</h1>
-                <button className={btnClass}
-                        onClick={this.togglePersonsHandler}>Toggle Button
-                </button>
+            <div className={classes.App}>
+                <Cockpit
+                    showPersons={this.state.showPersons}
+                    persons={this.state.persons}
+                    clicked={this.togglePersonsHandler}/>
                 {persons}
             </div>
         )

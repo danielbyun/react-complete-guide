@@ -1,8 +1,12 @@
-.App {
-    text-align: center;
+.red {
+    color: red;
 }
 
-.App button {
+.bold {
+    font-weight: bold;
+}
+
+.Cockpit button {
     background: #efefef;
     font: inherit;
     -webkit-border-radius: 7px;
@@ -16,18 +20,18 @@
     transition: 0.2s all ease-in-out;
 }
 
-.App button:hover {
+.Cockpit button:hover {
     background-color: black;
     color: #efefef;
     box-shadow: 2px 3px 3px mintcream;
 }
 
-.App button.Red {
+.Cockpit button.Red {
     background-color: red;
     transition: 0.2s all ease-in-out;
 }
 
-.App button.Red:hover {
+.Cockpit button.Red:hover {
     background-color: salmon;
     color: black;
 }
