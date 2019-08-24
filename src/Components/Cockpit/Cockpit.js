@@ -6,10 +6,26 @@ import "./Cockpit.css";
 
 // };
 
+// functional component
 function Cockpit(props) {
   useEffect(() => {
     console.log("[Cockpit.js] useEffect");
     // Http request...
+    setTimeout(() => {
+      // faking http request
+      alert("saved data to cloud");
+    }, 1000);
+    return () => {
+      console.log("[Cockpit.js] cleanup work in useEffect");
+    };
+  }, []); // control when this executes
+
+  // has no 2nd argument, will run every update cycle
+  useEffect(() => {
+    console.log("[Cockpit.js] 2nd useEffect");
+    return () => {
+      console.log("[Cockpit.js] cleanup work in useEffect");
+    };
   });
 
   const assignedClasses = [];
