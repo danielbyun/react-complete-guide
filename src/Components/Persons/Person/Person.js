@@ -8,7 +8,7 @@ class Person extends Component {
     // runs after Persons.js
     return (
       <Fragment>
-        <div className={classes.Person}>
+        <div className="Person">
           <p onClick={this.props.click}>
             I'm {this.props.name} and I am {this.props.age} years old!
           </p>
