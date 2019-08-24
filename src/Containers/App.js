@@ -39,6 +39,7 @@ class App extends Component {
   // disable or allow update
   shouldComponentUpdate(nextProps, nextState) {
     console.log("[App.js] shouldComponentUpdate");
+
     return true;
   }
 
