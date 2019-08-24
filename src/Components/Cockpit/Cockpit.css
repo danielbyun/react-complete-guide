@@ -1,43 +1,47 @@
 .red {
-    color: red;
+  color: red;
+}
+
+.Cockpit {
+  text-align: center;
 }
 
 .bold {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .Cockpit button {
-    background: #efefef;
-    font: inherit;
-    -webkit-border-radius: 7px;
-    -moz-border-radius: 7px;
-    border-radius: 7px;
-    padding: 8px;
-    margin: 15px;
-    cursor: pointer;
-    border: none;
-    box-shadow: 2px 3px 3px #cccccc;
-    transition: 0.2s all ease-in-out;
+  background: #efefef;
+  font: inherit;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
+  padding: 8px;
+  margin: 15px;
+  cursor: pointer;
+  border: none;
+  box-shadow: 2px 3px 3px #cccccc;
+  transition: 0.2s all ease-in-out;
 }
 
 .Cockpit button:hover {
-    background-color: black;
-    color: #efefef;
-    box-shadow: 2px 3px 3px mintcream;
+  background-color: black;
+  color: #efefef;
+  box-shadow: 2px 3px 3px mintcream;
 }
 
 .Cockpit button.Red {
-    background-color: red;
-    transition: 0.2s all ease-in-out;
+  background-color: red;
+  transition: 0.2s all ease-in-out;
 }
 
-.Cockpit button.Red:hover {
-    background-color: salmon;
-    color: black;
+.Cockpit button .Red:hover {
+  background-color: salmon;
+  color: black;
 }
 
 @media (min-width: 500px) {
-    .Person {
-        width: 450px;
-    }
+  .Person {
+    width: 450px;
+  }
 }

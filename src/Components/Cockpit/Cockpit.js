@@ -1,30 +1,41 @@
-import React from 'react';
+import React, { useEffect } from "react";
 import classes from "./Cockpit.css";
+import "./Cockpit.css";
 
-const cockpit = (props) => {
-    const assignedClasses = [];
-    let btnClass = "";
+// const cockpit = (props) => {
 
-    if (props.showPersons) {
-        btnClass = classes.Red;
-    }
-    if (props.persons.length <= 2) {
-        assignedClasses.push(classes.red);
-    }
-    if (props.persons.length <= 1) {
-        assignedClasses.push(classes.bold);
-    }
+// };
 
-    return (
-        <div className={classes.Cockpit}>
-            <h1>learning react</h1>
-            <p className={assignedClasses.join(' ')}>this be working</p>
-            <button
-                className={btnClass}
-                onClick={props.clicked}>Toggle Persons
-            </button>
-        </div>
-    );
-};
+function Cockpit(props) {
+  useEffect(() => {
+    console.log("[Cockpit.js] useEffect");
+    // Http request...
+  });
 
-export default cockpit;
+  const assignedClasses = [];
+  let btnClass = "";
+
+  console.log(props.showPersons);
+
+  if (props.showPersons) {
+    btnClass = classes.Red;
+  }
+  if (props.persons.length <= 2) {
+    assignedClasses.push(classes.red);
+  }
+  if (props.persons.length <= 1) {
+    assignedClasses.push(classes.bold);
+  }
+
+  return (
+    <div className={classes.Cockpit}>
+      <h1>{props.title}</h1>
+      <p className={assignedClasses.join(" ")}>why ain't you working</p>
+      <button className={btnClass} onClick={props.clicked}>
+        Toggle Persons
+      </button>
+    </div>
+  );
+}
+
+export default Cockpit;
