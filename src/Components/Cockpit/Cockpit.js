@@ -13,7 +13,7 @@ function Cockpit(props) {
     // Http request...
     const timer = setTimeout(() => {
       // faking http request
-      alert("saved data to cloud");
+      console.log("saved data to cloud");
     }, 1000);
     return () => {
       clearTimeout(timer);
