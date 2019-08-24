@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import classes from "./Cockpit.css";
 import "./Cockpit.css";
 
@@ -8,15 +8,19 @@ import "./Cockpit.css";
 
 // functional component
 function Cockpit(props) {
+  const toggleBtnRef = useRef(null);
+
   useEffect(() => {
     console.log("[Cockpit.js] useEffect");
     // Http request...
-    const timer = setTimeout(() => {
-      // faking http request
-      console.log("saved data to cloud");
-    }, 1000);
+    // const timer = setTimeout(() => {
+    //   // faking http request
+    //   console.log("saved data to cloud");
+    // }, 1000);
+    toggleBtnRef.current.click(); // can be placed here bc useEffect() runs after the render()
+
     return () => {
-      clearTimeout(timer);
+      // clearTimeout(timer);
       console.log("[Cockpit.js] cleanup work in useEffect");
     };
   }, []); // control when this executes
@@ -48,7 +52,7 @@ function Cockpit(props) {
     <div className="Cockpit">
       <h1>{props.title}</h1>
       <p className={assignedClasses.join(" ")}>why ain't you working</p>
-      <button className={btnClass} onClick={props.clicked}>
+      <button ref={toggleBtnRef} className={btnClass} onClick={props.clicked}>
         Toggle Persons
       </button>
     </div>
