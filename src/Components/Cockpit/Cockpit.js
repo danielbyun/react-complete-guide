@@ -11,11 +11,12 @@ function Cockpit(props) {
   useEffect(() => {
     console.log("[Cockpit.js] useEffect");
     // Http request...
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       // faking http request
       alert("saved data to cloud");
     }, 1000);
     return () => {
+      clearTimeout(timer);
       console.log("[Cockpit.js] cleanup work in useEffect");
     };
   }, []); // control when this executes
