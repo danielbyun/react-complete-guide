@@ -1,5 +1,4 @@
-import React, { Component } from "react";
-import Aux from "../../../hoc/Aux";
+import React, { Component, Fragment } from "react";
 import classes from "./Person.css";
 
 class Person extends Component {
@@ -8,7 +7,7 @@ class Person extends Component {
 
     // runs after Persons.js
     return (
-      <Aux>
+      <Fragment>
         <div className={classes.Person}>
           <p onClick={this.props.click}>
             I'm {this.props.name} and I am {this.props.age} years old!
@@ -20,7 +19,7 @@ class Person extends Component {
             value={this.props.name}
           />
         </div>
-      </Aux>
+      </Fragment>
     );
   }
 }
